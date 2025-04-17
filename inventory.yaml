@@ -6,7 +6,7 @@ zeros:
       ansible_host: 192.168.7.4
 p5s:
   hosts:
-    raspberrypi5:
+    rpi5-master:
       ansible_host: 192.168.7.2
     rpi5-01:
       ansible_host: 192.168.7.201
