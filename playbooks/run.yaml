@@ -1,0 +1,10 @@
+---
+- hosts: raspberries
+  become: yes
+  tasks:
+    - import_tasks: ../tasks/essential.yaml
+  handlers:
+    - name: Restart ssh
+      service:
+        name: sshd
+        state: restarted
