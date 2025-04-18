@@ -5,7 +5,6 @@
     state: present
   loop:
     - docker
-    - samba
     - "{{ username }}"
 
 - name: Ensure the non-root user is created
@@ -23,7 +22,7 @@
     update_password: on_create
 
 - name: Enable passwordless sudo for "{{ username }}"
-  lineinfile:
+  ansible.builtin.lineinfile:
     dest: /etc/sudoers
     line: "{{ username }} ALL=(ALL) NOPASSWD: ALL"
     validate: "visudo -cf %s"
