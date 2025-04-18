@@ -1,10 +1,20 @@
 ---
-- name: Disable SSH password authentication
+- name: Ensure SSH daemon is running.
+  service:
+    name: sshd
+    state: started
+
+- name: Update SSH configuration to be more secure.
   lineinfile:
     dest: /etc/ssh/sshd_config
-    regexp: "^PasswordAuthentication yes"
-    line: "PasswordAuthentication no"
+    regexp: "{{ item.regexp }}"
+    line: "{{ item.line }}"
     state: present
-    backup: yes
-    validate: /usr/sbin/sshd -T -f %s
-  notify: Restart SSH daemon
+    validate: "sshd -T -f %s"
+    mode: 0644
+  with_items:
+    - regexp: "^PasswordAuthentication"
+      line: "PasswordAuthentication no"
+  notify:
+    - reload systemd
+    - restart ssh
