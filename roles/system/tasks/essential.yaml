@@ -1,7 +1,7 @@
-- name: Update packages
+- name: Update all packages to their latest version
   ansible.builtin.apt:
-    update_cache: yes
-    upgrade: yes
+    name: "*"
+    state: latest
 
 - name: Remove useless packages from the cache
   ansible.builtin.apt:
@@ -13,13 +13,7 @@
     purge: true
 
 - name: Install pip
-  ansible.builtin.command:
-    cmd: python -m ensurepip
-  args:
-    creates: /usr/bin/pip3
-  become: true
-
-- name: Upgrade pip to latest version
-  ansible.builtin.command:
-    cmd: python3 -m pip install --upgrade pip
-  become: true
+  ansible.builtin.apt:
+    pkg:
+      - python3-pip
+    state: present
