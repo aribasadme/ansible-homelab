@@ -1,0 +1,6 @@
+.ansible/
+
+# Ignore files from external roles
+roles/
+# Except ones created localy
+!roles/system/
