@@ -1,0 +1,13 @@
+- name: Update packages
+  apt:
+    update_cache: yes
+    upgrade: yes
+
+- name: Remove useless packages from the cache
+  apt:
+    autoclean: yes
+
+- name: Remove dependencies that are no longer required and purge their configuration files
+  apt:
+    autoremove: yes
+    purge: true

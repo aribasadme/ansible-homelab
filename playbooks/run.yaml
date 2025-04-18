@@ -1,10 +1,8 @@
 ---
-- hosts: raspberries
-  become: yes
-  tasks:
-    - import_tasks: ../tasks/essential.yaml
-  handlers:
-    - name: Restart ssh
-      service:
-        name: sshd
-        state: restarted
+- name: Essential setup
+  hosts: raspberries
+  become: true
+  roles:
+    - role: system
+    - role: geerlingguy.pip
+    - role: geerlingguy.docker

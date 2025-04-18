@@ -1,0 +1,5 @@
+---
+username: pi
+
+pip_install_packages:
+  - name: docker

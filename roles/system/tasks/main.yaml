@@ -1,0 +1,4 @@
+---
+- import_tasks: essential.yaml
+- import_tasks: ssh.yaml
+- import_tasks: user.yaml

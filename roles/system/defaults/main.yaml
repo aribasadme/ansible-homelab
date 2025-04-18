@@ -1,0 +1,7 @@
+username: pi
+password: r4spb3rryPi
+
+lan_subnet: 192.168.7.0/24
+lan_base: "{{ lan_subnet | regexp_replace('.0/[0-9]{2}', '') }}"
+
+shell: /bin/bash
