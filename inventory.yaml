@@ -18,5 +18,3 @@ raspberries:
   children:
     p5s:
     zeros:
-  vars:
-    ansible_user: pi
