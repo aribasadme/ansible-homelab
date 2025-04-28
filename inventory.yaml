@@ -1,3 +1,8 @@
+ungrouped:
+  hosts:
+    retropie:
+      ansible_host: 192.168.7.7
+
 zeros:
   hosts:
     pi-guard:
