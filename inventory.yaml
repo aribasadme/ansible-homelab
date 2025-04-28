@@ -1,5 +1,7 @@
 ungrouped:
   hosts:
+    hiperbian:
+      ansible_host: 192.168.7.4
     retropie:
       ansible_host: 192.168.7.7
 
