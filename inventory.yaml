@@ -7,8 +7,6 @@ zeros:
   hosts:
     pi-guard:
       ansible_host: 192.168.7.6
-    hyperbian:
-      ansible_host: 192.168.7.4
 p5s:
   hosts:
     rpi5-master:
